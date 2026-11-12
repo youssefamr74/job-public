@@ -42,7 +42,11 @@ async def test_sync_task_reloads_user_in_its_own_session(db: AsyncSession, mock_
     session_context.__aenter__ = AsyncMock(return_value="task-session")
     session_context.__aexit__ = AsyncMock(return_value=False)
 
-    with patch("sync_runs.runner.get_local_user", new=AsyncMock(return_value=reloaded)) as get_user,          patch("sync_runs.runner.sync_applications", new=AsyncMock()) as sync,          patch("applications.routes.AsyncSessionLocal", return_value=session_context):
+    session_factory = MagicMock(return_value=session_context)
+
+    # After the sync the task runs the notification checks with the same session factory; they open a
+    # real session of their own, so they are checked here and not run.
+    with patch("sync_runs.runner.get_local_user", new=AsyncMock(return_value=reloaded)) as get_user,          patch("sync_runs.runner.sync_applications", new=AsyncMock()) as sync,          patch("sync_runs.runner.run_checks_safely", new=AsyncMock()) as checks,          patch("applications.routes.AsyncSessionLocal", new=session_factory):
         async with make_client(mock_user_with_gmail, db) as client:
             response = await client.post("/applications/sync")
 
@@ -53,6 +57,7 @@ async def test_sync_task_reloads_user_in_its_own_session(db: AsyncSession, mock_
     assert sync.await_args.kwargs["user"] is reloaded
     assert sync.await_args.kwargs["db"] == "task-session"
     assert str(sync.await_args.kwargs["run_id"]) == run_id
+    checks.assert_awaited_once_with(session_factory)
 
 
 def _new_app_row(user: User, fingerprint: str) -> dict:

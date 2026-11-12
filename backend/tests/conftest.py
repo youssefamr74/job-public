@@ -7,8 +7,24 @@ from contextlib import asynccontextmanager
 from datetime import date, datetime, timezone
 from unittest.mock import AsyncMock
 
-# Keep the app's log file and default database out of the repo's data/ folder.
-os.environ["DATA_DIR"] = tempfile.mkdtemp(prefix="job-tests-")
+# Every setting is fixed here, so a developer's backend/.env or environment can't change test results.
+# Environment variables win over the .env file.
+_DATA_DIR = tempfile.mkdtemp(prefix="job-tests-")  # keeps logs and the default database out of data/
+os.environ.update({
+    "DATA_DIR": _DATA_DIR,
+    "DATABASE_PATH": os.path.join(_DATA_DIR, "job.db"),
+    "HOST": "127.0.0.1",
+    "PORT": "8000",
+    "BACKEND_URL": "http://127.0.0.1:8000",
+    "WEB_SETUP_URL": "http://localhost:5173/setup",
+    "CORS_ORIGINS": '["http://localhost:5173"]',
+    "SECRET_KEY": "",
+    "SQL_ECHO": "false",
+    # The app adds the web app's middleware only when web/dist is built, and that middleware changes how
+    # requests and background-task errors behave. An empty folder makes tests run the same with or without
+    # a build (tests/test_web_api.py mounts a web app of its own).
+    "WEB_DIST_DIR": tempfile.mkdtemp(prefix="job-tests-web-"),
+})
 
 import pytest  # noqa: E402
 import pytest_asyncio  # noqa: E402
