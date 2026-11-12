@@ -1,0 +1,84 @@
+.page {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 24px 32px;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  font-size: var(--size-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.total {
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.titleActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle {
+  display: inline-flex;
+  height: var(--control-height);
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.toggle button {
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  padding: 0 12px;
+  border: 0;
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.toggle button + button {
+  border-left: 1px solid var(--line);
+}
+
+.toggle button[aria-pressed='true'] {
+  background: var(--surface-selected);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.toggle button:hover {
+  color: var(--ink);
+}
+
+.toggle button:focus-visible {
+  outline-offset: -2px;
+}
+
+@media (max-width: 900px) {
+  .content {
+    padding: 18px 16px 28px;
+  }
+}

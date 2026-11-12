@@ -1,0 +1,28 @@
+.sync {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label {
+  color: var(--text-2);
+  font-size: var(--size-base);
+  white-space: nowrap;
+}
+
+.label :global(.mono) {
+  font-size: var(--size-sm);
+}
+
+.failed {
+  color: var(--danger);
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+@media (max-width: 900px) {
+  .label {
+    display: none;
+  }
+}

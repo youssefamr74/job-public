@@ -1,0 +1,17 @@
+.steps {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.segment {
+  width: 8px;
+  height: 3px;
+  border-radius: 1px;
+  background: var(--line);
+}
+
+.segment[data-reached] {
+  background: var(--ink);
+}

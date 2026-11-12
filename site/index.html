@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Jōb · a job search companion that runs on your computer</title>
+    <meta
+      name="description"
+      content="Jōb reads your Gmail, finds the emails about your job applications and keeps them in one list with their status. Self-hosted, open source, works without AI."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="top">
+      <a class="mark" href="/">Jōb</a>
+      <nav aria-label="Site">
+        <a href="/demo/">Demo</a>
+        <a href="https://github.com/youssefamr74/job-public">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h1>Your job applications, sorted from your inbox.</h1>
+        <p class="lead">
+          Jōb reads your Gmail, finds the emails about your applications and keeps them in one list with their status:
+          applied, assessment, interview, offer or rejected. It runs on your own computer and works without AI.
+        </p>
+        <p class="actions">
+          <a class="btn primary" href="/demo/">Try the demo</a>
+          <a class="btn" href="https://github.com/youssefamr74/job-public">View on GitHub</a>
+        </p>
+        <p class="note">The demo uses made-up sample data and runs entirely in your browser.</p>
+      </section>
+
+      <section aria-labelledby="features">
+        <h2 id="features">What it does</h2>
+        <dl class="features">
+          <div>
+            <dt>Finds your applications</dt>
+            <dd>Confirmations, assessments, interview invites, offers and rejections are matched to the right application.</dd>
+          </div>
+          <div>
+            <dt>Asks when it isn’t sure</dt>
+            <dd>Emails the rules can’t settle go to Needs Review with the email next to them, instead of a guess.</dd>
+          </div>
+          <div>
+            <dt>Shows what needs you</dt>
+            <dd>Upcoming interviews, interviews with no news, and applications with no reply for two weeks.</dd>
+          </div>
+          <div>
+            <dt>Keeps recruiter outreach apart</dt>
+            <dd>Messages from recruiters become opportunities. Turn one into an application when you apply.</dd>
+          </div>
+          <div>
+            <dt>Shows how it’s going</dt>
+            <dd>Applications per week, response rate, time to first reply and where applications stop.</dd>
+          </div>
+          <div>
+            <dt>AI if you want it</dt>
+            <dd>Optional, with your own key or a local model: Anthropic, OpenAI, Gemini, OpenRouter or Ollama.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section aria-labelledby="privacy">
+        <h2 id="privacy">Privacy</h2>
+        <p>
+          Jōb runs on your computer. Your emails, applications and database stay in its data folder, and mail
+          credentials are stored encrypted. It only reads your mail; it never sends or deletes anything. Without AI,
+          nothing goes anywhere except to Gmail itself. With AI, only the emails the rules couldn’t settle go to the
+          provider you chose, by default just their subject and sender. There is no account and no analytics.
+        </p>
+        <p class="note">
+          This site and the demo collect nothing: no analytics, no cookies, no tracking. They make no requests beyond
+          loading their own files.
+        </p>
+      </section>
+
+      <section aria-labelledby="install">
+        <h2 id="install">Install</h2>
+        <p>You need <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>.</p>
+        <pre><code>git clone https://github.com/youssefamr74/job-public.git
+cd job-public
+cp .env.example .env
+docker compose up -d</code></pre>
+        <p>
+          Open <code>http://localhost:8000</code> and follow the setup: connect Gmail, optionally add AI, and run the
+          first sync. The
+          <a href="https://github.com/youssefamr74/job-public/blob/main/docs/setup-gmail.md">Gmail guide</a> explains
+          the Google Cloud and app-password options.
+        </p>
+      </section>
+    </main>
+
+    <footer class="bottom">
+      <span>Jōb is open source under the MIT license.</span>
+      <a href="https://github.com/youssefamr74/job-public">github.com/youssefamr74/job-public</a>
+    </footer>
+  </body>
+</html>

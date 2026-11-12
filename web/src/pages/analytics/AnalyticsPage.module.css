@@ -1,0 +1,208 @@
+.page {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: var(--size-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.toggle {
+  display: inline-flex;
+  height: var(--control-height);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.toggle button {
+  padding: 0 12px;
+  border: 0;
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.toggle button + button {
+  border-left: 1px solid var(--line);
+}
+
+.toggle button[aria-pressed='true'] {
+  background: var(--surface-selected);
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.toggle button:hover {
+  color: var(--ink);
+}
+
+.toggle button:focus-visible {
+  outline-offset: -2px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 0 40px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.tile {
+  padding: 20px 20px 22px;
+}
+
+.tile:first-child {
+  padding-left: 0;
+}
+
+.tile + .tile {
+  border-left: 1px solid var(--line);
+}
+
+.tileLabel {
+  font-size: var(--size-xs);
+  color: var(--text-2);
+}
+
+.tileValue {
+  margin: 6px 0 2px;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.tileNote {
+  margin: 0;
+  font-size: var(--size-xs);
+  color: var(--text-2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 48px;
+}
+
+.week {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 48px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.weekTitle {
+  font-size: var(--size-base);
+  font-weight: 600;
+}
+
+.weekSubtitle {
+  margin-top: 2px;
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.weekNumbers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 18px 0 0;
+}
+
+.weekNumbers div {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.weekNumbers dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.weekText {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  line-height: 1.55;
+}
+
+.weekText strong {
+  font-weight: 600;
+}
+
+.nextWeek {
+  margin: 4px 0 -4px;
+  font-size: var(--size-base);
+  font-weight: 600;
+}
+
+.weekText ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.weekText li + li {
+  margin-top: 6px;
+}
+
+@media (max-width: 1000px) {
+  .tiles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tile:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .tile:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .grid,
+  .week {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 18px 16px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    padding-left: 0;
+  }
+
+  .tile + .tile {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}

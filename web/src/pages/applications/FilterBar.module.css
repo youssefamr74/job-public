@@ -1,0 +1,29 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 16px;
+  margin-bottom: 18px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter {
+  font-weight: 400;
+}
+
+.filter[aria-pressed='true'],
+.filter[data-state='open'] {
+  background: var(--surface-selected);
+  border-color: #cfccc4;
+}
+
+.summary {
+  color: var(--text-2);
+  font-size: var(--size-base);
+}

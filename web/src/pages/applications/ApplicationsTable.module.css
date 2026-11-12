@@ -1,0 +1,144 @@
+.scroller {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.colCompany { width: 17%; }
+.colRole { width: 23%; }
+.colStatus { width: 16%; }
+.colApplied { width: 9%; }
+.colActivity { width: 28%; }
+.colEmails { width: 7%; }
+
+.table th {
+  height: 36px;
+  padding: 0 12px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  font-size: var(--size-xs);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+.sort:hover {
+  color: var(--ink);
+}
+
+.arrow {
+  display: inline-block;
+  min-width: 8px;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.group th {
+  height: 34px;
+  border-top: 0;
+  padding: 12px 12px 4px;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+  font-size: var(--size-xs);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.row td {
+  height: 41px;
+  transition: background-color 150ms ease;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.row {
+  cursor: pointer;
+}
+
+.row:hover td {
+  background: var(--surface);
+}
+
+.row[data-cursor] {
+  outline: 1px solid #cfccc4;
+  outline-offset: -1px;
+}
+
+.row[data-cursor] td {
+  background: var(--surface);
+}
+
+.row[data-open] td {
+  background: var(--surface-selected);
+}
+
+.open {
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 500;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.cell-emails {
+  text-align: right;
+}
+
+.cell-emails .sort {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.hint {
+  margin-top: 22px;
+  font-size: var(--size-xs);
+  color: var(--text-2);
+}
+
+.hint kbd {
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+}
+
+@media (max-width: 700px) {
+  .table {
+    min-width: 520px;
+  }
+
+  .colRole { width: 26%; }
+  .colApplied,
+  .colEmails,
+  .cell-applied,
+  .cell-emails {
+    display: none;
+  }
+}

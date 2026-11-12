@@ -1,0 +1,125 @@
+.methods {
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.method {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 8px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.method input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--ink);
+  cursor: pointer;
+}
+
+.method > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.methodTitle {
+  font-weight: 500;
+}
+
+.methodNote {
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stepsTitle {
+  font-size: var(--size-base);
+  font-weight: 600;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: -8px 0 4px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  line-height: 1.5;
+}
+
+.steps li {
+  position: relative;
+  padding-left: 32px;
+  counter-increment: step;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  color: var(--text-2);
+}
+
+.steps a {
+  color: var(--ink);
+  text-underline-offset: 3px;
+}
+
+.input {
+  height: 42px;
+}
+
+.note {
+  color: var(--text-2);
+  font-size: var(--size-xs);
+}
+
+.copyRow {
+  display: flex;
+  gap: 8px;
+}
+
+.code {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.submit {
+  height: 40px;
+  padding: 0 18px;
+}
+
+.actions .note {
+  font-size: var(--size-sm);
+}

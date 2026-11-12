@@ -1,0 +1,35 @@
+:root {
+  --white: #ffffff;
+  --surface: #f7f7f7;
+  --surface-selected: #eef0f3;
+  --line: #e4e5e7;
+  --line-soft: #efeff1;
+  --ink: #0f1b2d;
+  --text-2: #3a4556;
+  --muted: #5f6673;
+
+  --status-applied: #5a6270;
+  --status-assessment: #8a5a00;
+  --status-interview: #1d4f91;
+  --status-rejected: #9a3b2e;
+  --status-offer: #1f6b45;
+  --status-review: #3a4556;
+  --stale: #8a5a00;
+  --danger: #9a3b2e;
+
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --size-xs: 14px;
+  --size-sm: 15px;
+  --size-base: 16px;
+  --size-md: 17px;
+  --size-lg: 21px;
+  --size-xl: 24px;
+
+  --radius: 6px;
+  --header-height: 56px;
+  --control-height: 32px;
+  --focus: 2px solid var(--ink);
+  --overlay-shadow: 0 6px 24px rgb(15 27 45 / 0.12), 0 1px 3px rgb(15 27 45 / 0.08);
+}

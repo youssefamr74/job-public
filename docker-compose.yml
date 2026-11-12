@@ -1,0 +1,15 @@
+services:
+  backend:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      TZ: ${TZ:-Europe/Berlin}
+      SECRET_KEY: ${SECRET_KEY:-}
+      BACKEND_URL: ${BACKEND_URL:-http://localhost:8000}
+      WEB_SETUP_URL: ${WEB_SETUP_URL:-http://localhost:8000/setup}
+    volumes:
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -1,0 +1,122 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: var(--radius);
+}
+
+.column[data-drop-target] {
+  background: var(--surface-selected);
+}
+
+.columnTitle {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #a8a59e;
+  font-size: var(--size-base);
+  font-weight: 600;
+}
+
+.columnCount {
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  font-weight: 400;
+  color: var(--text-2);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  text-align: left;
+  cursor: grab;
+}
+
+.card:hover {
+  border-color: #d0cdc5;
+  background: var(--surface);
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.company {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.role {
+  color: var(--text-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  margin-top: 6px;
+  font-size: var(--size-xs);
+  color: var(--text-2);
+}
+
+.meta :global(.mono) {
+  font-size: var(--size-xs);
+}
+
+.emptyColumn {
+  padding: 12px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--text-2);
+}
+
+.more {
+  align-self: flex-start;
+  margin: 12px 2px 0;
+  font-size: var(--size-sm);
+}
+
+.hint {
+  margin-top: 28px;
+  font-size: var(--size-xs);
+  color: var(--text-2);
+}
+
+@media (max-width: 700px) {
+  .board {
+    grid-template-columns: repeat(5, minmax(220px, 80vw));
+    scroll-snap-type: x mandatory;
+  }
+
+  .column {
+    scroll-snap-align: start;
+  }
+}

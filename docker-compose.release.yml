@@ -1,0 +1,24 @@
+# Run Jōb from the published image, without cloning the repository.
+#
+#   curl -o docker-compose.yml https://raw.githubusercontent.com/youssefamr74/job-public/main/docker-compose.release.yml
+#   docker compose up -d
+#
+# Then open http://localhost:8000. Your data stays in the data folder next to this file.
+services:
+  job:
+    image: ghcr.io/youssefamr74/job-public:latest
+    restart: unless-stopped
+    ports:
+      # Only this computer can reach it. Jōb has no login, so don't expose it to a network.
+      - "127.0.0.1:8000:8000"
+    environment:
+      # Your time zone. It decides what counts as "today" for goals and streaks.
+      TZ: ${TZ:-Europe/Berlin}
+      SECRET_KEY: ${SECRET_KEY:-}
+      BACKEND_URL: ${BACKEND_URL:-http://localhost:8000}
+      WEB_SETUP_URL: ${WEB_SETUP_URL:-http://localhost:8000/setup}
+    volumes:
+      - ./data:/app/data
+    extra_hosts:
+      # Lets Jōb reach a local model (Ollama) on this computer.
+      - "host.docker.internal:host-gateway"

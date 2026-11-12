@@ -1,0 +1,35 @@
+.page {
+  width: 100%;
+  max-width: 760px;
+  padding: 24px 24px 40px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: var(--size-xl);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  margin: 4px 0 18px;
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.list {
+  margin: 0 -8px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 18px 16px 32px;
+  }
+}

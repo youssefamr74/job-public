@@ -1,0 +1,413 @@
+.card {
+  min-width: 0;
+}
+
+.cardHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cardActions {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 14px;
+}
+
+.cardTitle {
+  font-size: var(--size-base);
+  font-weight: 600;
+}
+
+.cardSubtitle {
+  margin-top: 2px;
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.tableToggle {
+  flex: none;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: var(--size-xs);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+.tableToggle:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
+.empty {
+  color: var(--text-2);
+}
+
+/* Applications per week */
+.columns {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  height: 220px;
+  border-bottom: 0;
+}
+
+.column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.columnTrack {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid #cfccc4;
+}
+
+.columnBar {
+  width: min(36px, 72%);
+  background: var(--ink);
+  border-radius: 2px 2px 0 0;
+  transition: opacity 150ms ease;
+}
+
+.columnValue {
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-2);
+  visibility: hidden;
+}
+
+.columnValue[data-pinned],
+.column:hover .columnValue {
+  visibility: visible;
+}
+
+.column:hover .columnBar {
+  opacity: 0.82;
+}
+
+.columnLabel[data-skip] {
+  visibility: hidden;
+}
+
+.columnLabel {
+  margin-top: 8px;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--size-xs);
+  color: var(--text-2);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Horizontal bars */
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr 72px;
+  align-items: center;
+  gap: 12px;
+}
+
+.weekdays .row {
+  grid-template-columns: 48px 1fr 72px;
+  gap: 12px;
+}
+
+.weekdays {
+  gap: 10px;
+}
+
+.track {
+  height: 12px;
+  background: var(--line-soft);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: var(--ink);
+  border-radius: 2px;
+}
+
+.track:hover .fill {
+  opacity: 0.82;
+}
+
+.value {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--size-sm);
+  text-align: right;
+}
+
+.rate {
+  min-width: 34px;
+  color: var(--text-2);
+  text-align: right;
+}
+
+.tooFew {
+  color: var(--muted);
+}
+
+/* Response rate by role */
+.roleHead,
+.roleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(100px, 200px) 52px;
+  align-items: center;
+  gap: 16px;
+}
+
+.roleHead {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.roleRows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roleRow {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.roleRow .track {
+  height: 8px;
+}
+
+.roleName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.roleGroup {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.roleGroup > .roleRow {
+  border-bottom: 0;
+}
+
+.sortButton {
+  padding: 0;
+  white-space: nowrap;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sortButton:hover,
+.sortButton[aria-pressed='true'] {
+  color: var(--ink);
+}
+
+.otherRows {
+  margin: 0 0 8px 16px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line-soft);
+}
+
+.otherRows .roleGroup:last-child {
+  border-bottom: 0;
+}
+
+.roleNote {
+  margin-top: 10px;
+  color: var(--text-2);
+  font-size: var(--size-xs);
+}
+
+.roleToggle {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.roleToggle:hover .roleName {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.chevron {
+  flex: none;
+  width: 10px;
+  color: var(--muted);
+  font-size: var(--size-xs);
+}
+
+.roleCount {
+  flex: none;
+  color: var(--muted);
+  font-size: var(--size-xs);
+}
+
+.rolePanel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0 0 14px 16px;
+}
+
+.titleList,
+.mergedList,
+.suggestionList {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.titleList li,
+.mergedList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 0;
+  font-size: var(--size-sm);
+  color: var(--text-2);
+}
+
+.roleHint {
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.smallButton {
+  height: 28px;
+  padding: 0 10px;
+  font-size: var(--size-sm);
+}
+
+.mergeMenu {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.mergeMenu :global(.overlay-item) {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.suggestionList li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.suggestionButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.num {
+  text-align: right;
+}
+
+/* Table view */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--size-sm);
+}
+
+.table th,
+.table td {
+  height: 34px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: left;
+}
+
+.table thead th {
+  border-bottom-color: var(--line);
+  font-size: var(--size-xs);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.table tbody th {
+  font-weight: 400;
+}
+
+.table .num {
+  font-family: var(--font-mono);
+  text-align: right;
+}
+
+.table thead .num {
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: 96px 1fr 64px;
+    gap: 8px;
+  }
+
+  .roleHead,
+  .roleRow {
+    grid-template-columns: minmax(0, 1fr) 60px 80px 44px;
+    gap: 8px;
+  }
+}

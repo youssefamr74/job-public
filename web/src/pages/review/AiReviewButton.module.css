@@ -1,0 +1,18 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.note {
+  color: var(--text-2);
+  font-size: var(--size-sm);
+}
+
+.note a {
+  color: var(--ink);
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
